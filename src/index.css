@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Scheherazade+New:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-quran-green: #0B3D2E;
+  --color-quran-gold: #C9A227;
+  --color-quran-gray: #6E6E6E;
+  
+  --color-app-bg: var(--bg-color);
+  --color-app-text: var(--text-color);
+  --color-app-surface: var(--surface-color);
+  --color-app-border: var(--border-color);
+  --color-app-muted: var(--muted-color);
+  --color-app-brand: var(--brand-color);
+  --color-app-brand-contrast: var(--brand-color-contrast);
+  
+  --font-sans: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-amiri: "Amiri Quran", serif;
+  --font-scheherazade: "Scheherazade New", serif;
+}
+
+:root, .theme-light {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --surface-color: #f9fafb;
+  --border-color: #e5e7eb;
+  --muted-color: #6E6E6E;
+  --brand-color: #0B3D2E;
+  --brand-color-contrast: #ffffff;
+}
+
+.theme-dark {
+  --bg-color: #121212;
+  --text-color: #e5e5e5;
+  --surface-color: #1a1a1a;
+  --border-color: #2a2a2a;
+  --muted-color: #6E6E6E;
+  --brand-color: #C9A227;
+  --brand-color-contrast: #121212;
+}
+
+.theme-cream {
+  --bg-color: #FDF6E3;
+  --text-color: #0B3D2E;
+  --surface-color: #F5EBD0;
+  --border-color: #E6D5A7;
+  --muted-color: #6E6E6E;
+  --brand-color: #0B3D2E;
+  --brand-color-contrast: #ffffff;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@font-face {
+  font-family: 'Uthmani';
+  src: url('https://cdn.qurancdn.com/fonts/ttf/p1-v1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IndoPak';
+  src: url('https://cdn.qurancdn.com/fonts/ttf/indopak-v1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-uthmani { font-family: 'Uthmani', serif; }
+.font-indopak { font-family: 'IndoPak', serif; }
+.font-amiri { font-family: var(--font-amiri); }
+.font-scheherazade { font-family: var(--font-scheherazade); }
+
+body {
+  @apply bg-app-bg text-app-text font-sans font-light transition-colors duration-300;
+  direction: ltr;
+}
+
+.arabic-text {
+  direction: rtl;
+  line-height: 2;
+  font-weight: normal;
+}
+
+.ayah-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 5 L95 50 L50 95 L5 50 Z" fill="none" stroke="%23C9A227" stroke-width="4"/><circle cx="50" cy="50" r="35" fill="none" stroke="%23C9A227" stroke-width="2"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 0.4em;
+  margin: 0 0.5em;
+  color: var(--color-quran-gold);
+}
