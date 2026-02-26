@@ -11,6 +11,8 @@ import Home from './pages/Home';
 import Reading from './pages/Reading';
 import Settings from './pages/Settings';
 import Bookmarks from './pages/Bookmarks';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Offline from './pages/Offline';
 import { useStore } from './store/useStore';
 import { useEffect } from 'react';
 
@@ -44,6 +46,8 @@ export default function App() {
             <Route path="read/:id" element={<Reading />} />
             <Route path="settings" element={<Settings />} />
             <Route path="bookmarks" element={<Bookmarks />} />
+            <Route path="privacy" element={<PrivacyPolicy />} />
+            <Route path="offline" element={<Offline />} />
           </Route>
         </Routes>
       </Router>

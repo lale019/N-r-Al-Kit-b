@@ -1,5 +1,6 @@
 import { useStore } from '../store/useStore';
-import { Settings as SettingsIcon, Type, Globe, Volume2, Moon, Sun, BookOpen } from 'lucide-react';
+import { Settings as SettingsIcon, Type, Globe, Volume2, Moon, Sun, BookOpen, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Settings() {
   const { 
@@ -166,8 +167,13 @@ export default function Settings() {
         </div>
       </section>
 
-      <div className="text-center text-xs text-app-text/50 mt-8 font-light">
+      <div className="text-center text-xs text-app-text/50 mt-8 font-light space-y-4">
         <p>All Quran content sourced from verified Quran.com APIs.</p>
+        <div className="flex justify-center gap-4">
+          <Link to="/privacy" className="flex items-center gap-1 hover:text-quran-green transition-colors underline">
+            <Shield className="w-3 h-3" /> Privacy Policy
+          </Link>
+        </div>
       </div>
     </div>
   );
