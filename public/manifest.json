@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "categories": ["education", "books", "reference"],
-  "background_color": "#FDF6E3",
+  "background_color": "#04241A",
   "theme_color": "#0B3D2E",
   "icons": [
     {

@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 export type FontType = 'Uthmani' | 'IndoPak' | 'Amiri Quran' | 'Scheherazade New';
 export type ThemeType = 'light' | 'dark' | 'cream';
 export type UiSizeType = 'small' | 'medium' | 'large';
-export type TranslationType = 131 | 22 | 97; // 131: Sahih Int, 22: Yusuf Ali, 97: Maududi
+export type TranslationType = 20 | 131 | 22 | 97; // 20: Sahih Int, 131: Clear Quran, 22: Yusuf Ali, 97: Maududi
 export type ReciterType = 7 | 1 | 2; // 7: Mishary, 1: AbdulBaset, 2: Sudais
 
 interface AppState {
@@ -45,7 +45,7 @@ export const useStore = create<AppState>()(
       fontSize: 24,
       theme: 'cream',
       uiSize: 'medium',
-      translation: 131,
+      translation: 20,
       reciter: 7,
       showTranslation: true,
       bookmarks: [],

@@ -16,7 +16,8 @@ export default function Settings() {
   const fonts = ['Uthmani', 'IndoPak', 'Amiri Quran', 'Scheherazade New'];
   const themes = ['light', 'dark', 'cream'];
   const translations = [
-    { id: 131, name: 'Sahih International (English)' },
+    { id: 20, name: 'Sahih International (English)' },
+    { id: 131, name: 'The Clear Quran (English)' },
     { id: 22, name: 'Yusuf Ali (English)' },
     { id: 97, name: 'Maududi (Urdu)' }
   ];

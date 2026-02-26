@@ -13,14 +13,16 @@ import Settings from './pages/Settings';
 import Bookmarks from './pages/Bookmarks';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Offline from './pages/Offline';
+import SplashScreen from './components/SplashScreen';
 import { useStore } from './store/useStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const queryClient = new QueryClient();
 
 export default function App() {
   const theme = useStore((state) => state.theme);
   const uiSize = useStore((state) => state.uiSize);
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.remove('theme-light', 'theme-dark', 'theme-cream', 'dark');
@@ -38,6 +40,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
       <GlobalAudioPlayer />
       <Router>
         <Routes>
