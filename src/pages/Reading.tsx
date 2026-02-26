@@ -11,12 +11,12 @@ export default function Reading() {
   const chapterId = parseInt(id || '1', 10);
   const navigate = useNavigate();
   
-  const { font, fontSize, theme, translation, reciter, showTranslation, bookmarks, toggleBookmark, setLastRead } = useStore();
+  const { 
+    font, fontSize, theme, translation, reciter, showTranslation, 
+    bookmarks, toggleBookmark, setLastRead,
+    isPlaying, setIsPlaying, currentAudioUrl, currentSurahId, setAudio
+  } = useStore();
   
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentAyah, setCurrentAyah] = useState<number | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
   const { data: versesData, isLoading: versesLoading } = useQuery({
     queryKey: ['verses', chapterId, translation, reciter],
     queryFn: () => fetchVersesByChapter(chapterId, translation, reciter),
@@ -33,31 +33,15 @@ export default function Reading() {
   });
 
   useEffect(() => {
-    if (audioData?.audio_url) {
-      audioRef.current = new Audio(audioData.audio_url);
-      audioRef.current.addEventListener('ended', () => setIsPlaying(false));
-      audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+    if (audioData?.audio_url && currentSurahId !== chapterId) {
+      // Only update if it's a different surah
+      setAudio(audioData.audio_url, chapterId);
     }
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.removeEventListener('ended', () => setIsPlaying(false));
-        audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
-      }
-    };
-  }, [audioData]);
-
-  const handleTimeUpdate = () => {
-    // Basic time update logic to highlight current ayah
-    // A real implementation would need precise timestamps per ayah
-    // For now, we'll just play the whole chapter
-  };
+  }, [audioData, chapterId, currentSurahId, setAudio]);
 
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current?.pause();
-    } else {
-      audioRef.current?.play();
+    if (!currentAudioUrl && audioData?.audio_url) {
+      setAudio(audioData.audio_url, chapterId);
     }
     setIsPlaying(!isPlaying);
   };

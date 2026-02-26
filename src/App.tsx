@@ -6,6 +6,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Layout from './components/Layout';
+import GlobalAudioPlayer from './components/GlobalAudioPlayer';
 import Home from './pages/Home';
 import Reading from './pages/Reading';
 import Settings from './pages/Settings';
@@ -35,6 +36,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GlobalAudioPlayer />
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>

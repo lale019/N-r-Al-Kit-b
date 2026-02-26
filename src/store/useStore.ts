@@ -18,6 +18,11 @@ interface AppState {
   bookmarks: number[]; // Ayah keys or IDs
   lastRead: { surah: number; ayah: number } | null;
   
+  // Audio State (Not persisted)
+  isPlaying: boolean;
+  currentAudioUrl: string | null;
+  currentSurahId: number | null;
+  
   setFont: (font: FontType) => void;
   setFontSize: (size: number) => void;
   setTheme: (theme: ThemeType) => void;
@@ -27,6 +32,10 @@ interface AppState {
   setShowTranslation: (show: boolean) => void;
   toggleBookmark: (ayahId: number) => void;
   setLastRead: (surah: number, ayah: number) => void;
+  
+  // Audio Actions
+  setIsPlaying: (playing: boolean) => void;
+  setAudio: (url: string | null, surahId: number | null) => void;
 }
 
 export const useStore = create<AppState>()(
@@ -41,6 +50,9 @@ export const useStore = create<AppState>()(
       showTranslation: true,
       bookmarks: [],
       lastRead: null,
+      isPlaying: false,
+      currentAudioUrl: null,
+      currentSurahId: null,
 
       setFont: (font) => set({ font }),
       setFontSize: (fontSize) => set({ fontSize }),
@@ -60,9 +72,15 @@ export const useStore = create<AppState>()(
             : [...state.bookmarks, ayahId],
         })),
       setLastRead: (surah, ayah) => set({ lastRead: { surah, ayah } }),
+      setIsPlaying: (isPlaying) => set({ isPlaying }),
+      setAudio: (currentAudioUrl, currentSurahId) => set({ currentAudioUrl, currentSurahId }),
     }),
     {
       name: 'quran-storage',
+      partialize: (state) => {
+        const { isPlaying, currentAudioUrl, currentSurahId, ...rest } = state;
+        return rest;
+      },
     }
   )
 );
