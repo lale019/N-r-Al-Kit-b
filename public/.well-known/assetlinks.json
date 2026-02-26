@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.nural_kitab.twa",
+      "package_name": "app.railway.up.n_r_al_kit_b_production_939e.twa",
       "sha256_cert_fingerprints": [
-        "YOUR_SHA256_FINGERPRINT_HERE"
+        "DE:12:D6:2E:8B:86:32:BD:A5:4C:7F:93:51:67:3C:95:2A:CB:9D:23:2A:54:92:A0:EC:82:C6:84:5C:E6:EF:F5"
       ]
     }
   }
