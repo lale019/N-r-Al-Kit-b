@@ -1,0 +1,23 @@
+{
+  "name": "Nūr Al-Kitāb",
+  "short_name": "Quran",
+  "description": "The Holy Quran - A modern reading experience",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF6E3",
+  "theme_color": "#0B3D2E",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/quran192/192/192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://picsum.photos/seed/quran512/512/512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
